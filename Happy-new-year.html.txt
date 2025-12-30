@@ -1,0 +1,155 @@
+HNY
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy New Year ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      width: 300px;
+      height: 200px;
+      border-radius: 12px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.4s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card h2 {
+      color: #ff4d6d;
+    }
+
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .letter {
+      background: #fff;
+      width: 90%;
+      max-width: 350px;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      animation: pop 0.6s ease;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.3); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .letter h1 {
+      color: #ff4d6d;
+    }
+
+    .letter p {
+      color: #444;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .close {
+      margin-top: 15px;
+      padding: 8px 16px;
+      border: none;
+      background: #ff4d6d;
+      color: white;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .heart {
+      position: absolute;
+      color: red;
+      animation: float 4s infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100vh); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" onclick="openLetter()">
+    <h2>Tap to Open 💖</h2>
+  </div>
+
+  <div class="popup" id="popup">
+    <div class="letter">
+      <h1>Happy New Year 🎉</h1>
+      <p>
+        My love, My cutiee ❤️<br><br>
+        As this new year begins, I just want you to know how thankful I am for you to come in my life.
+Honestly, I was not in any need of a partner but after i met you after we became us, i came to know how dumb i was to think like that. I got to know how bad i needed someone in my life and am glad it was YOU.
+        You make my days brighter, my heart lighter, and my life happier.
+        I hope your interest in me never goes down. I hope we remain like this alwayssss.
+We will fight, we will have our ups and downs but i wish and hope that we always fix it and make our love glow more brighter and brighter.
+        And lastly I can’t wait to create more memories, laughter, and love with you.
+        I LIKE YOU ❤️❤️
+        <br><br>
+        Here’s to **us**, and to a beautiful year ahead ✨
+      </p>
+      <button class="close" onclick="closeLetter()">Close 💕</button>
+    </div>
+  </div>
+
+  <script>
+    function openLetter() {
+      document.getElementById("popup").style.display = "flex";
+      createHearts();
+    }
+
+    function closeLetter() {
+      document.getElementById("popup").style.display = "none";
+    }
+
+    function createHearts() {
+      for (let i = 0; i < 20; i++) {
+        let heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.className = "heart";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 20 + 15 + "px";
+        heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 4000);
+      }
+    }
+  </script>
+
+</body>
+</html>
